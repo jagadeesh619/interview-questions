@@ -215,17 +215,55 @@
 
 1.	what is docker file?
 
+ANS: DOCKER FILE IS USED TO CREATE CUSTOM DOCKER IMAGER IT CONSISTS OF SERIES OF INSTRUCTIONS EXECUTED BY LAYER BY LAYER IT CONSITS OF INSTRUCTIONS LIKE FROM , RUN , COPY ETC .
+
 2.	what is multi stage in docker?
+
+ANS : IT MEANS IF DOCKER FILE CONSISTS MUltiple FROM INSTRUCTIONS and its used to reduce image size mostly used for java application as while building java application we need jdk which is heavy in size but to run we need only jre .
 
 3.	What is Docker volume and how do you use it?
 
+ANS: IT means docker volume is used to persist data even after deleting container . we create volume and mount it to given path so that 
+
+# Create and run a container with a volume
+docker run -d -v roboshop:/data image:v1
+
+1. named volume : docker volume create my_volume  (managed by docker)
+2. unamed volumne : # Run a container with a bind mount   ( docker run -d -v /path/on/host:/app/data my_image )
+
+
+
+
 4.	How can we pass an argument to Dockerfile?
+ANS :  BY USING ARG INSTRUCTION IN DOCKER FILE WE CAN PASS ARGUMENTSS TO DOCKER FILE .
+docker build -t my_custom_image --build-arg BASE_IMAGE=python:3.9-slim .
+
 
 5.	Dockerfile runs as which user?
 
+ANS : DOCKERFILE RUNS BY DEFAULT AS ROOT USER BUT WE CAN change THE USER BY GIVING 'USER' INSTRUCTION IN DOCKER FILE 
+
 6.	How do you push the image to Docker Hub
 
+ANS : FIRST WE NEED TO LOGIN TO DOCKER HUB IN SERVER THEN IF IMAGE IS AVAILABLE IN SERVER .we need to tag it with docker user id . WE CAN USE COMMAND : docker push <dockerhub id>/repositpry_id:tag
+
+# Example: Tagging an image
+docker tag local_image:version your_dockerhub_id/repository_name:version
+
+
 7.	Write the docker file in java based
+
+FROM MAVEN:JDK-18 AS build
+WORKDIR /opt/shipping
+COPY pom.xml /opt/shipping
+RUN mvn dependency:resolve
+COPY src /opt/shipping/src
+RUN mvn package
+
+FROM OPENJDK:JRE-18
+WORKDIR /opt/shipping
+copy --from=build /opt/shipping/shipping.jar shipping.jar
+CMD ['shipping.jar','-g','daemon off']
 
 8.	Docker Compose?
 
