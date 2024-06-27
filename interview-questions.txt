@@ -69,25 +69,76 @@
 
 1.	what are tags in ansible?
 
+ANS : WE WILL GIVE TAGS TO PARTICULAR TASKS WHENEVER WE REQUIRED TO RUN WE CAN RAN ONLY THAT TASK .
+
+ansible-playbook site.yml --tags "webserver"
+
+
 2.	what is ansible playbook?
+
+ANS : ANSIBLE PLAYBOOK USED TO CONFIGURATION AND DEPLOYMENTS IN GIVEN HOST GROUP IS WRITTEN IN YAML FORMAT WHICH CONSISTS LIST OF PLAYS AND IN THAT PLAYS WE HAVE LIST OF TASK TO EXECTED 
 
 3.	What are handlers in Ansible playbook?
 
-4.	What are various modules you have used in Ansible?
+ANS : HANDLERS IN ANSIBLE USED TO TRIGGERS THE TASK after running particular task 
 
+    notify:
+        - Restart Apache
+
+handlers:
+    - name: Restart Apache
+      service:
+        name: apache2
+        state: restarted
+
+4.	What are various modules you have used in Ansible?
+   ANS : PACKAGE , Service , COPY , GET URL , COMMAND , SHELL , UNARCHIVE , USER , FILE , SYSTEMD_SERVICE 
 5.	What is Ansible ad hoc command?
+
+ANS : EXECUTING ASIBLE TASK WITHOUT WRITTING AND EXECUTING PLAYBOOK IT RAN BY CLI 
+
+EG : ansible webservers -m service -a "name=apache2 state=restarted"
+
+ansible <host-pattern> -m <module> -a "<module-options>"
+
+
 
 6.	How has Ansible helped your organization?
 
+ANS ANSIBLE HELP IN OUR PROJECT TO DOWNLOAD PACKAGES AND CONFIGURE MULTIPLE SERVERS AT A TIME WHICH REDUCE TIME ALSO 
+
 7.	What are register targets in Ansible?
+
+ANS : REGISTER TARGETS IS NOTHING STORING  OUTPUT OF PARTICULAR TASK AND USE IT WHENEVER REQUIRED
 
 8.	How to add multiple tasks in ansible playbook
 
+ANS : WE ADD MULTIPLES TASKS UNDER TASKS SECTION WHICH REPRESENT PARTICULAR ACTION RAN IN GIVEN HOST SERVERS IN ANSIBLE PLAYBOOK .
+
 9.	Ansible host ping is success but I am not able to execute playbooks why? 
 
+ANS : CHECK WHETHER ROOT ACCESS IS GIVEN OR NOT IF NOT GIVEN BECOME : YES 
+
 10.	What is Ansible Tower and what are its features
+ANS : ANSIBLE TOWER PROVIDE WEB BASED UI INTERFACE INSTEAD OF CLI IT HELP FOR BETTER MANAGEMENT OF PLAYBOOKS AND SHEDULE IT 
 
 11.	How do you keep data secret in a playbook?
+
+ANS : WE CAN USE ANSIBLE VAULT TO STORE SECRETS IN ANSIBLE PLAYBOOK 
+
+ANSIBLE-VAULT CREATE SECRET.YAML 
+
+ANSIBLE-VAULT ENCRYPT  SECRET.YAML 
+
+ANSBILE-VAULT DECRYPT SECRET.YAML
+
+ANSIBLE-VAULT EDIT SECRET.YAML
+
+ansible-playbook -i inventory playbook.yml --ask-vault-pass
+
+
+
+12 . ANSIBLE-GALAXY : IT AS HUB FOR ALL ANSIBLE COMMUNITY USED AS CENTRAL REPO WHENEVER WE REQUIRED WE CAN USE PARTICULAR ROLE DOWLOADED AND USE IT 
 
 ## Terraform Interview Questions ##
 
@@ -276,7 +327,7 @@ ANS : TO INTEGRATE DOCKER WITH JENKINS FOLLOW STEPS THAT ARE .
 1 . INSTALL DOCKER IN JEKINS SERVER .
 2. DOWLOAD DOCKER Plugin IN JEKINS .
 3. CONFIGURE JENKINS AND DOCKER IN GLOBAL configuration SECTION IN JENKINS .
-4. WRITE JENKINS Pipeline .
+4. WRITE JENKINS Pipeline .8
 
 
 10.	Please explain docker networking
