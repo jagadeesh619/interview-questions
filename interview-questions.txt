@@ -218,34 +218,55 @@ ansible-playbook -i inventory playbook.yml --ask-vault-pass
 
 1.	what are pipeline stages in your organization?
 
+ANS : PIPELINE STAGES IN OUR PROJECT ARE BUILD INFRA OF OUR PROJECT , BUILD THE CODE , UNIT TESTING THE CODE ,   SCANNING THE CODE , ARTIFACT THE CODE,  DEPLOY THE CODE , FUNCTIONAL TESTING , PERFORMANCE TESING  , MONITORING APPLICATION  
+
 2.	What is the architecture of your application CICD deployment in current org?
+
+ANS: 
 
 3.	What is the issue have u faced in Jenkins non prod to prod while building the Jenkins job?
 
+ANS : IN JENKINS WE HAVE FACED SOMETIMES IN PIPELINE WHEN WE MOVE TO NO-PROD TO PROD DUE TO CONFIGURATION . FOR THIS ISSUE WE HAVE USED SSM PARAMETRS TO RESOLVE IT 
+
 4.	pipeline issues in Jenkins
+
 
 5.	production pipeline issues in Jenkins
 
 6.	what are the build issues have you faced in your project?
 
+ANS : WE FACED BUILD ISSUE DUE TO DEPENDENCY CONFILCTS WHILE BUILD THROUGH MAVEN AS SOME UNCOMPATABILITY DEPENDENCIES WERE DOWNLOAD FOR THIS ISSUE WE USED MVN DEPENDENCY:tree to know where conflict occuring after that we edit pom.xml
+
 7.	Deployment strategies
+
+ANS : THE DIFFERENT TYPE OF DEPLOYMENT strategies ARE ROLLING UPDATE  , BLUE GREEN , RECREATE 
+
+ROLLING UPDATE : IF OUR APPLICATION IS Deployed in three instances GRADUALLY making old version to newer version at one instances at a time . 
 
 8.	What are various plugins in your Jenkins Pipeline?
 
+ANS : PIPELINE UTILITY PLUGIN (SONAR QUBE) , STAGE VIEW (PLUGIN) , 
+
 9.	How do you create a multi-branch Jenkins pipeline?
+ANS : IF PIPELINE HAVING MULTIPLE BRANCHS WE ARE USING MULTI-BRANCH PIPELINE BY SELECTING FROM MULTI-BRANCH PIPELINE AND ADDING OUR GIT HUB REPO IT CAN AUTOMATICALLY DETECT BRANCHS AND CREATE PIPEPLINE  
 
 10.	how do you upgrade Jenkins?
+ANS : backup jenkins by copying jenkins home directory to safe location , check new version of jenkins compatability in the current evironment including java compatability , then download jenkins.war and stop jenkins service and replace new jenkins war file with newer war file then start jenkins war file
 
 11.	What is a shared library
+ANS : IT IS LIKE CENTRAL REPOSITRY FOR JENKINS PIPELINE WE CAN BUILD ONCE USE ANYWARE . WE TELL DEVELOPER TO KEEP PIPELINE WHICH CALLS JEKINS SHARED LIBRARY .
 
 12.	What is jenkins and security tools
 
+ANS : JENKINS IS AN OPEN SOURCE SERVER USED TO AUTOMATE THE CI/CD PROCESS BY BUILDING PIPELINE TO DELEVER HIGH QUALITY SOFTWARE WITH MORE EFFECIENT , FOR SECURITY WE MANGE CREDENTAILS MANAGEMENT , SSH MANAGEMENT , OWASP PLUGIN USED TO IDENTIFY SECURITY VUNERIBILITYIES 
+
 13.	What is the Jenkinsfile, and how is it used in Jenkins pipelines
+ANS : JENKINSFILE IS TEXT FILE CONTAINS PIPELINE DEFENATION  .IT CONTAINS STAGES IN EACH STAGE IT PERFORM  SPECIFIC ACTION . stored in git hub . 
 
 14.	How to integrate sonarkube in declarative pipeline
-
+ANS : INSTALL SONAR QUBE PLUGIN IN JEKINS , AND THEN CONFIGURATION SONARQUBE CREDENTIALS IN JEKINS  , UPDATING IN JENKINS PIPELINE 
 15.	How to pass a credentials in pipeline
-
+ANS :  WE STORE CREDENTAILS IN MANAGE JEKINS CREDENTIALS AND WE CALL CREDIALS IN JENKINS PIPELINE IN ENVIRONMENT VARIABLES 
 16.	What are the features of Jenkins?
 
 17.	What is Groovy in Jenkins?
